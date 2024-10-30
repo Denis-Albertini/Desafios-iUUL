@@ -23,7 +23,7 @@ class Poligono {
   }
 
   perimetro() {
-    this.#vertices.reduce((sum, vertice, index, vertices) => {
+    return this.#vertices.reduce((sum, vertice, index, vertices) => {
       if (vertices[index + 1])
         return sum + vertice.distancia(vertices[index + 1]);
       else return sum + vertice.distancia(vertices[0]);
