@@ -68,11 +68,7 @@ while (1) {
     if (!padraoData.test(input))
       console.log("Data deve estar no formato dd/mm/aaaa!");
   }
-  var [day, month, year] = input.split("/").map(Number);
-  dataLuxon = DateTime.fromObject(
-    { day, month, year },
-    { zone: "America/Sao_Paulo" }
-  );
+  dataLuxon = DateTime.fromFormat(input, "dd/MM/yyyy");
   if (DateTime.now().diff(dataLuxon, "years").years >= 18) break;
   else {
     console.log("Idade precisa ser maior ou igual a 18!");
