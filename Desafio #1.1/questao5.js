@@ -83,16 +83,16 @@ let dataNascimento = dataLuxon;
 
 input = "";
 var padraoRenda = /\d,\d{2}/;
-while (!padraoRenda.test(input) || parseFloat(input) < 0) {
+while (!padraoRenda.test(input) || Number(input) < 0) {
   console.log("#");
   input = prompt("Renda: ");
   if (!padraoRenda.test(input))
     console.log(
       "Renda deve ter a virgula decimal seguida de duas casas decimais!"
     );
-  if (parseFloat(input) < 0) console.log("Renda deve ser maior ou igual a 0!");
+  if (Number(input) < 0) console.log("Renda deve ser maior ou igual a 0!");
 }
-let renda = parseFloat(input.replace(",", "."));
+let renda = Number(input.replace(",", "."));
 
 input = "";
 var padraCivil = /[csvd]/i;
@@ -112,7 +112,7 @@ while (!padraoDependentes.test(input)) {
   if (!padraoDependentes.test(input))
     console.log("Dependentes deve ser um numero de 0 a 10!");
 }
-let dependentes = parseInt(input);
+let dependentes = Number(input);
 
 const cliente = new Cliente(
   nome,
@@ -142,6 +142,8 @@ console.log(
     "dd/MM/yyyy"
   )}`
 );
-console.log(`Renda mensal: ${cliente.renda.toFixed(2)}`);
+console.log(
+  `Renda mensal: ${cliente.renda.toFixed(2).toString().replace(".", ",")}`
+);
 console.log(`Estado civil: ${cliente.estadoCivil}`);
 console.log(`Dependentes: ${cliente.dependentes}`);

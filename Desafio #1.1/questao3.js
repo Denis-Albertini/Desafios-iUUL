@@ -26,7 +26,7 @@ class Poligono {
     this.#vertices.reduce((sum, vertice, index, vertices) => {
       if (vertices[index + 1])
         return sum + vertice.distancia(vertices[index + 1]);
-      return sum;
+      else return sum + vertice.distancia(vertices[0]);
     }, 0);
   }
 
@@ -42,9 +42,9 @@ console.log(
 );
 while (1) {
   while (1) {
-    let x = parseFloat(prompt("x:"));
+    let x = Number(prompt("x:"));
     if (isNaN(x)) break;
-    let y = parseFloat(prompt("y:"));
+    let y = Number(prompt("y:"));
     if (isNaN(y)) break;
     vertices.push(new Vertice(x, y));
     console.log("#");
@@ -59,12 +59,10 @@ while (1) {
 
 console.log(`perimetro: ${poligono.perimetro()}`);
 console.log(`numero de vertices: ${poligono.qtdVertices()}`);
-console.log("Adicione um vertice");
+console.log("Adicione mais um vertice");
 while (1) {
   if (
-    poligono.addVertice(
-      new Vertice(parseFloat(prompt("x:")), parseFloat(prompt("y:")))
-    )
+    poligono.addVertice(new Vertice(Number(prompt("x:")), Number(prompt("y:"))))
   )
     break;
   else console.log("Este vertice ja existe!");

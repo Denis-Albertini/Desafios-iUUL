@@ -98,7 +98,7 @@ while (1) {
   console.log("(3)Lancar nota");
   console.log("(4)Gerar relatorio");
   console.log("(0)Encerrar programa");
-  let input = parseInt(prompt("opcao: "));
+  let input = Number(prompt("opcao: "));
   switch (input) {
     case 1:
       console.log("#");
@@ -114,8 +114,8 @@ while (1) {
     case 3:
       console.log("#");
       let matricula = prompt("Matricula: ");
-      let opcao = parseInt(prompt("(1)p1 ou (2)p2? "));
-      let nota = parseFloat(prompt("Nota: "));
+      let opcao = Number(prompt("(1)p1 ou (2)p2? "));
+      let nota = Number(prompt("Nota: "));
       if (turma.lancarNota(matricula, opcao, nota)) break;
       console.log("Erro!");
       break;

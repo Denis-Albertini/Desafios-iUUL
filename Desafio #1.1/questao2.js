@@ -102,16 +102,16 @@ while (1) {
   try {
     triangulos[i - 1] = new Triangulo(
       new Vertice(
-        parseFloat(prompt(`vertice1 x: `)),
-        parseFloat(prompt(`vertice1 y: `))
+        Number(prompt(`vertice1 x: `)),
+        Number(prompt(`vertice1 y: `))
       ),
       new Vertice(
-        parseFloat(prompt(`vertice2 x: `)),
-        parseFloat(prompt(`vertice2 y: `))
+        Number(prompt(`vertice2 x: `)),
+        Number(prompt(`vertice2 y: `))
       ),
       new Vertice(
-        parseFloat(prompt(`vertice3 x: `)),
-        parseFloat(prompt(`vertice3 y: `))
+        Number(prompt(`vertice3 x: `)),
+        Number(prompt(`vertice3 y: `))
       )
     );
     i++;
@@ -121,9 +121,8 @@ while (1) {
   if (triangulos.length === 3) break;
 }
 
-console.log("\n");
-
 triangulos.forEach((triangulo) => {
+  console.log("#");
   console.log(`triangulo${triangulos.indexOf(triangulo) + 1}`);
   for (let i = 0; i < 3; i++) {
     if (triangulos.indexOf(triangulo) !== i)
